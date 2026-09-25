@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0a0406">
+<meta name="theme-color" content="#120c1f">
 
 <title>🌻 Para Katherine 🌻</title>
 
@@ -12,22 +12,24 @@
 <style>
 
 /* =========================================================
-   VARIABLES
+   VARIABLES (NUEVA PALETA: LILA PASTEL & SOFT GOLD)
 ========================================================= */
 
 :root {
-    --accent-pink: #f7a8c4;
-    --soft-pink: rgba(232,192,204,.6);
+    --accent-lila: #c8b6ff;
+    --soft-lila: #e7c6ff;
+    --deep-lila: #7058a3;
+    --glow-lila: #b8c0ff;
 
-    --dark-bg: #0a0406;
+    --dark-bg: #120c1f;
 
     --gold: #ffd447;
     --gold-soft: #ffe889;
 
-    --green: #285d28;
-    --green-dark: #102410;
+    --green: #2e683b;
+    --green-dark: #122b17;
 
-    --glass: rgba(255,255,255,.035);
+    --glass: rgba(255, 255, 255, 0.05);
 }
 
 
@@ -69,7 +71,7 @@ body {
 
 
 /* =========================================================
-   LOADER
+   LOADER ANIMADO
 ========================================================= */
 
 #loader-screen {
@@ -77,6 +79,7 @@ body {
     inset: 0;
 
     display: flex;
+    flex-direction: column;
 
     justify-content: center;
     align-items: center;
@@ -84,9 +87,9 @@ body {
     background:
         radial-gradient(
             circle at center,
-            #180b11 0%,
-            #080305 55%,
-            #000 100%
+            #23183b 0%,
+            #120c1f 70%,
+            #0a0612 100%
         );
 
     z-index: 1000;
@@ -98,62 +101,58 @@ body {
         visibility 1.2s ease;
 }
 
-.loader-inner {
-    width: min(650px, 100%);
-    position: relative;
-}
-
-.loader-symbol {
-    color: var(--accent-pink);
-
-    font-size: 12px;
-
-    letter-spacing: 5px;
-
+.loader-flower-icon {
+    font-size: 3.5rem;
     margin-bottom: 20px;
-
-    opacity: .7;
+    animation: pulseLila 2.5s ease-in-out infinite;
+    filter: drop-shadow(0 0 15px rgba(200, 182, 255, 0.6));
 }
 
-#typewriter {
-    color: var(--accent-pink);
-
-    font-family: monospace;
-
-    font-size: clamp(.82rem, 2vw, 1.05rem);
-
-    line-height: 1.8;
-
-    min-height: 280px;
-
-    text-shadow:
-        0 0 10px rgba(247,168,196,.5),
-        0 0 25px rgba(247,168,196,.15);
-}
-
-.cursor {
-    display: inline-block;
-
-    width: 8px;
-
-    height: 17px;
-
-    background: var(--accent-pink);
-
-    margin-left: 3px;
-
-    vertical-align: middle;
-
-    animation: blink .8s infinite;
-}
-
-@keyframes blink {
-    0%, 50% {
-        opacity: 1;
+@keyframes pulseLila {
+    0%, 100% {
+        transform: scale(0.95) rotate(-3deg);
+        opacity: 0.8;
     }
+    50% {
+        transform: scale(1.1) rotate(3deg);
+        opacity: 1;
+        filter: drop-shadow(0 0 25px rgba(231, 198, 255, 0.9));
+    }
+}
 
-    51%, 100% {
-        opacity: 0;
+.loader-text-box {
+    text-align: center;
+    max-width: 450px;
+}
+
+.loader-phrase {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+    color: var(--soft-lila);
+    line-height: 1.6;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInUp 1.2s ease forwards;
+    animation-delay: 0.4s;
+    text-shadow: 0 0 12px rgba(200, 182, 255, 0.4);
+}
+
+.loader-subphrase {
+    margin-top: 12px;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent-lila);
+    opacity: 0;
+    animation: fadeInUp 1.2s ease forwards;
+    animation-delay: 1.2s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -177,8 +176,8 @@ body {
     background:
         radial-gradient(
             circle at center,
-            #1c0c12 0%,
-            #0a0406 70%
+            #2d1e4a 0%,
+            #120c1f 80%
         );
 
     text-align: center;
@@ -193,7 +192,7 @@ body {
     position: relative;
 
     border:
-        1px solid rgba(247,168,196,.18);
+        1px solid rgba(200, 182, 255, 0.3);
 
     padding:
         clamp(2rem, 6vw, 3.5rem);
@@ -201,18 +200,18 @@ body {
     border-radius: 25px;
 
     background:
-        rgba(255,255,255,.025);
+        rgba(255,255,255,.03);
 
-    backdrop-filter: blur(18px);
+    backdrop-filter: blur(20px);
 
-    -webkit-backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(20px);
 
     width:
         min(450px, 90%);
 
     box-shadow:
-        0 0 60px rgba(247,168,196,.035),
-        inset 0 0 30px rgba(255,255,255,.015);
+        0 0 60px rgba(184, 192, 255, 0.12),
+        inset 0 0 30px rgba(255,255,255,.02);
 
     overflow: hidden;
 }
@@ -222,21 +221,21 @@ body {
 
     position: absolute;
 
-    width: 180px;
-    height: 180px;
+    width: 200px;
+    height: 200px;
 
     border-radius: 50%;
 
-    background: rgba(247,168,196,.08);
+    background: rgba(200, 182, 255, 0.15);
 
-    filter: blur(50px);
+    filter: blur(60px);
 
     top: -90px;
     right: -70px;
 }
 
 .card-flower {
-    font-size: 2rem;
+    font-size: 2.2rem;
 
     margin-bottom: 15px;
 
@@ -246,11 +245,11 @@ body {
 
 @keyframes cardFlower {
     0%,100% {
-        transform: rotate(-4deg);
+        transform: scale(0.95);
     }
 
     50% {
-        transform: rotate(4deg) scale(1.04);
+        transform: scale(1.1);
     }
 }
 
@@ -266,13 +265,13 @@ h1.serif {
     font-size:
         clamp(2.3rem, 7vw, 3rem);
 
-    color: #fff0f4;
+    color: #f3ebff;
 
     margin-bottom: 20px;
 }
 
 .card-main-text {
-    color: var(--soft-pink);
+    color: var(--soft-lila);
 
     line-height: 1.9;
 
@@ -284,7 +283,7 @@ h1.serif {
 
     font-style: italic;
 
-    color: var(--accent-pink);
+    color: var(--accent-lila);
 
     line-height: 1.7;
 
@@ -305,10 +304,10 @@ h1.serif {
 
     background: transparent;
 
-    color: var(--accent-pink);
+    color: var(--accent-lila);
 
     border:
-        1px solid var(--accent-pink);
+        1px solid var(--accent-lila);
 
     padding:
         13px 40px;
@@ -346,7 +345,7 @@ h1.serif {
         linear-gradient(
             90deg,
             transparent,
-            rgba(247,168,196,.25),
+            rgba(200, 182, 255, 0.4),
             transparent
         );
 
@@ -359,12 +358,12 @@ h1.serif {
 
 .btn-exp:hover {
     background:
-        var(--accent-pink);
+        var(--accent-lila);
 
-    color: #000;
+    color: #120c1f;
 
     box-shadow:
-        0 0 25px rgba(247,168,196,.65);
+        0 0 25px rgba(200, 182, 255, 0.8);
 }
 
 .btn-exp:active {
@@ -373,7 +372,7 @@ h1.serif {
 
 
 /* =========================================================
-   MAIN EXPERIENCE
+   MAIN EXPERIENCE & ELEMENTOS AMBIENTALES
 ========================================================= */
 
 #main-experience {
@@ -388,6 +387,121 @@ h1.serif {
 
     width: 100%;
     height: 100%;
+}
+
+/* Estilos para la Luna */
+#moon {
+    position: fixed;
+    top: 6%;
+    right: 8%;
+    z-index: 12;
+    cursor: pointer;
+    filter: drop-shadow(0 0 18px rgba(200, 182, 255, 0.7));
+    animation: moonGlow 4s ease-in-out infinite alternate;
+    transition: transform 0.3s ease;
+}
+
+#moon:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+@keyframes moonGlow {
+    0% { transform: scale(1) rotate(-5deg); filter: drop-shadow(0 0 15px rgba(255, 232, 137, 0.5)); }
+    100% { transform: scale(1.05) rotate(2deg); filter: drop-shadow(0 0 25px rgba(200, 182, 255, 0.8)); }
+}
+
+/* Nubes Bajas de Neblina */
+.cloud-layer {
+    position: fixed;
+    bottom: 10%;
+    left: 0;
+    width: 200%;
+    height: 250px;
+    background: radial-gradient(ellipse at center, rgba(200, 182, 255, 0.08) 0%, rgba(200, 182, 255, 0) 70%);
+    pointer-events: none;
+    z-index: 1;
+    animation: moveClouds 45s linear infinite;
+}
+
+.cloud-layer-2 {
+    bottom: 18%;
+    height: 200px;
+    opacity: 0.6;
+    animation: moveClouds 65s linear infinite reverse;
+}
+
+@keyframes moveClouds {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Estrellas Fugaces */
+.shooting-star {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 120px;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(255,232,137,1), rgba(200,182,255,0.8), transparent);
+    border-radius: 50%;
+    filter: drop-shadow(0 0 8px rgba(255,232,137,0.8));
+    opacity: 0;
+    pointer-events: none;
+    z-index: 2;
+    transform: rotate(25deg);
+    animation: shootingStarAnim 1.8s ease-out forwards;
+}
+
+@keyframes shootingStarAnim {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) rotate(25deg) scaleX(0.2);
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(600px, 280px) rotate(25deg) scaleX(1.2);
+    }
+}
+
+/* Constelación y Frase Secreta de la Luna */
+#moon-secret-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 15;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+}
+
+#moon-secret-container.show {
+    opacity: 1;
+}
+
+.constellation-k {
+    width: 180px;
+    height: 220px;
+    filter: drop-shadow(0 0 12px rgba(200, 182, 255, 0.9));
+}
+
+.moon-secret-text {
+    margin-top: 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.3rem, 4vw, 1.8rem);
+    color: var(--gold-soft);
+    text-shadow: 0 0 15px rgba(255, 232, 137, 0.8);
+    background: rgba(18, 12, 31, 0.7);
+    padding: 10px 25px;
+    border-radius: 30px;
+    border: 1px solid rgba(200, 182, 255, 0.3);
+    backdrop-filter: blur(8px);
 }
 
 canvas {
@@ -425,7 +539,7 @@ canvas {
 
     letter-spacing: 4px;
 
-    color: #c8607a;
+    color: #b8c0ff;
 
     margin-bottom: 12px;
 
@@ -444,7 +558,7 @@ canvas {
     font-size:
         clamp(1.4rem, 4vw, 1.9rem);
 
-    color: rgba(255,255,255,.9);
+    color: rgba(255,255,255,.92);
 }
 
 .ui-subtitle {
@@ -453,7 +567,7 @@ canvas {
     font-size: .7rem;
 
     color:
-        rgba(232,192,204,.45);
+        rgba(231, 198, 255, 0.65);
 
     letter-spacing: 2px;
 }
@@ -474,7 +588,7 @@ canvas {
 
     gap: 2px;
 
-    opacity: .9;
+    opacity: .95;
 }
 
 #days-together {
@@ -487,12 +601,12 @@ canvas {
 
     font-weight: 300;
 
-    color: var(--accent-pink);
+    color: var(--accent-lila);
 
     line-height: 1;
 
     text-shadow:
-        0 0 12px rgba(247,168,196,.35);
+        0 0 15px rgba(200, 182, 255, 0.4);
 
     transition:
         transform .4s ease;
@@ -506,7 +620,7 @@ canvas {
     text-transform: uppercase;
 
     color:
-        rgba(232,192,204,.42);
+        rgba(231, 198, 255, 0.5);
 }
 
 .relationship-counter:hover #days-together {
@@ -535,8 +649,8 @@ canvas {
     background:
         linear-gradient(
             to top,
-            #0c1a0d 0%,
-            #0a140b 45%,
+            #0e2413 0%,
+            #0d1d11 45%,
             transparent 100%
         );
 }
@@ -612,7 +726,28 @@ canvas {
 
     transition:
         opacity .8s ease,
-        transform .8s ease;
+        transform 1.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* DESPLAZAMIENTO LATERAL DE LAS FLORES INICIALES */
+.plant.shift-left-far {
+    transform: translateX(-180px) scale(0.85) !important;
+    opacity: 0.55 !important;
+}
+
+.plant.shift-left-mid {
+    transform: translateX(-110px) scale(0.9) !important;
+    opacity: 0.7 !important;
+}
+
+.plant.shift-right-mid {
+    transform: translateX(110px) scale(0.9) !important;
+    opacity: 0.7 !important;
+}
+
+.plant.shift-right-far {
+    transform: translateX(180px) scale(0.85) !important;
+    opacity: 0.55 !important;
 }
 
 .flower {
@@ -637,8 +772,8 @@ canvas {
     background:
         linear-gradient(
             to bottom,
-            #2d6e2d,
-            #1a3d1a
+            #327838,
+            #183d1c
         );
 
     position: relative;
@@ -647,7 +782,7 @@ canvas {
 
     box-shadow:
         0 0 6px
-        rgba(40,160,40,.2);
+        rgba(50,180,50,.2);
 }
 
 .leaf {
@@ -660,13 +795,13 @@ canvas {
     background:
         linear-gradient(
             135deg,
-            #2e8b2e,
-            #1a5a1a
+            #339938,
+            #18591d
         );
 
     box-shadow:
         0 0 5px
-        rgba(40,160,40,.25);
+        rgba(50,180,50,.25);
 }
 
 .leaf.left {
@@ -745,22 +880,13 @@ canvas {
 
 
 /* =========================================================
-   SPECIAL CENTER FLOWER
+   SPECIAL FLOWERS
 ========================================================= */
 
-#special-flower {
+.special-flower-container {
     position: fixed;
 
-    left: 50%;
-
     bottom: 55px;
-
-    transform:
-        translateX(-50%)
-        scale(.75);
-
-    transform-origin:
-        50% 100%;
 
     z-index: 7;
 
@@ -774,20 +900,42 @@ canvas {
 
     filter:
         drop-shadow(
-            0 0 10px
-            rgba(255,211,60,.2)
+            0 0 12px
+            rgba(255,211,60,.3)
         );
 }
 
-#special-flower.bloom {
-    opacity: 1;
-
-    transform:
-        translateX(-50%)
-        scale(1);
+#special-flower-center {
+    left: 50%;
+    transform: translateX(-50%) scale(.75);
 }
 
-#special-stem {
+#special-flower-center.bloom {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+}
+
+#special-flower-left {
+    left: 41%;
+    transform: translateX(-50%) scale(.6);
+}
+
+#special-flower-left.bloom {
+    opacity: 1;
+    transform: translateX(-50%) scale(.8);
+}
+
+#special-flower-right {
+    left: 59%;
+    transform: translateX(-50%) scale(.6);
+}
+
+#special-flower-right.bloom {
+    opacity: 1;
+    transform: translateX(-50%) scale(.8);
+}
+
+.special-stem-elem {
     position: absolute;
 
     left: 50%;
@@ -806,12 +954,12 @@ canvas {
     background:
         linear-gradient(
             to bottom,
-            #367b36,
-            #173617
+            #3c8a3c,
+            #193a19
         );
 }
 
-.special-leaf {
+.special-leaf-elem {
     position: absolute;
 
     width: 75px;
@@ -820,15 +968,15 @@ canvas {
     background:
         linear-gradient(
             135deg,
-            #3b8d3b,
-            #1d591d
+            #429b42,
+            #1f5e1f
         );
 
     border-radius:
         100% 0 100% 0;
 }
 
-.special-leaf.left {
+.special-leaf-elem.left {
     left: calc(50% - 70px);
 
     bottom: 120px;
@@ -837,7 +985,7 @@ canvas {
         rotate(-25deg);
 }
 
-.special-leaf.right {
+.special-leaf-elem.right {
     right: calc(50% - 70px);
 
     bottom: 175px;
@@ -847,7 +995,7 @@ canvas {
         scaleX(-1);
 }
 
-#special-head {
+.special-head-elem {
     position: relative;
 
     width: 150px;
@@ -866,7 +1014,7 @@ canvas {
         opacity 1s ease;
 }
 
-#special-flower.bloom #special-head {
+.special-flower-container.bloom .special-head-elem {
     transform:
         scale(1)
         rotate(0deg);
@@ -874,7 +1022,7 @@ canvas {
     opacity: 1;
 }
 
-.special-petal {
+.special-petal-elem {
     position: absolute;
 
     left: 50%;
@@ -892,15 +1040,15 @@ canvas {
     background:
         linear-gradient(
             to bottom,
-            #ffe45a,
-            #e9b900
+            #ffe566,
+            #eab300
         );
 
     transform-origin:
         50% 65px;
 }
 
-.special-center {
+.special-center-elem {
     position: absolute;
 
     left: 50%;
@@ -917,16 +1065,16 @@ canvas {
     background:
         radial-gradient(
             circle,
-            #301100 0%,
-            #1a0800 70%
+            #3a1800 0%,
+            #1f0b00 70%
         );
 
     box-shadow:
         0 0 15px
-        rgba(255,190,0,.25);
+        rgba(255,190,0,.3);
 }
 
-.special-center::after {
+.special-center-elem::after {
     content: "♥";
 
     position: absolute;
@@ -939,7 +1087,7 @@ canvas {
     align-items: center;
 
     color:
-        rgba(247,168,196,.7);
+        rgba(200, 182, 255, 0.9);
 
     font-size: 17px;
 }
@@ -982,12 +1130,12 @@ canvas {
     border-radius: 50%;
 
     background:
-        #f7a8c4;
+        #c8b6ff;
 
     box-shadow:
-        0 0 8px #f7a8c4,
-        0 0 20px rgba(247,168,196,.8),
-        0 0 40px rgba(247,168,196,.35);
+        0 0 8px #c8b6ff,
+        0 0 20px rgba(200, 182, 255, 0.8),
+        0 0 40px rgba(184, 192, 255, 0.5);
 
     animation:
         fireflyPulse
@@ -1006,7 +1154,7 @@ canvas {
 
     border:
         1px solid
-        rgba(247,168,196,.18);
+        rgba(200, 182, 255, 0.3);
 }
 
 .firefly::before {
@@ -1052,10 +1200,10 @@ canvas {
     z-index: 90;
 
     background:
-        rgba(0,0,0,.35);
+        rgba(18, 12, 31, 0.55);
 
     backdrop-filter:
-        blur(3px);
+        blur(5px);
 
     opacity: 0;
 
@@ -1083,13 +1231,13 @@ canvas {
     background:
         linear-gradient(
             145deg,
-            rgba(24,9,15,.98),
-            rgba(9,3,5,.98)
+            rgba(35, 23, 58, 0.98),
+            rgba(18, 12, 31, 0.98)
         );
 
     border:
         1px solid
-        rgba(247,168,196,.25);
+        rgba(200, 182, 255, 0.3);
 
     padding:
         2.5rem;
@@ -1110,9 +1258,9 @@ canvas {
     z-index: 100;
 
     box-shadow:
-        0 20px 80px rgba(0,0,0,.6),
+        0 20px 80px rgba(0,0,0,.7),
         0 0 50px
-        rgba(247,168,196,.04);
+        rgba(184, 192, 255, 0.1);
 }
 
 .popup.show {
@@ -1131,7 +1279,7 @@ canvas {
     letter-spacing: 4px;
 
     color:
-        rgba(247,168,196,.45);
+        rgba(200, 182, 255, 0.6);
 
     margin-bottom: 14px;
 }
@@ -1174,7 +1322,7 @@ canvas {
 
 #p-text {
     color:
-        var(--soft-pink);
+        var(--soft-lila);
 
     margin-top: 15px;
 
@@ -1195,7 +1343,7 @@ canvas {
 
     display: flex;
 
-    gap: 18px;
+    gap: 12px;
 
     z-index: 50;
 
@@ -1208,13 +1356,13 @@ canvas {
 .dot {
     position: relative;
 
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
 
     border-radius: 50%;
 
     background:
-        #3a1020;
+        #3b2a59;
 
     transition:
         .5s ease;
@@ -1225,24 +1373,24 @@ canvas {
 
     position: absolute;
 
-    inset: -7px;
+    inset: -6px;
 
     border-radius: 50%;
 
     border:
         1px solid
-        rgba(247,168,196,.08);
+        rgba(200, 182, 255, 0.15);
 }
 
 .dot.active {
     background:
-        var(--accent-pink);
+        var(--accent-lila);
 
     box-shadow:
         0 0 10px
-        var(--accent-pink),
+        var(--accent-lila),
         0 0 25px
-        rgba(247,168,196,.4);
+        rgba(184, 192, 255, 0.6);
 }
 
 
@@ -1267,7 +1415,7 @@ canvas {
     letter-spacing: 2px;
 
     color:
-        rgba(232,192,204,.35);
+        rgba(231, 198, 255, 0.45);
 
     white-space: nowrap;
 }
@@ -1290,10 +1438,10 @@ canvas {
 
     border:
         1px solid
-        rgba(247,168,196,.2);
+        rgba(200, 182, 255, 0.3);
 
     color:
-        var(--accent-pink);
+        var(--accent-lila);
 
     width: 38px;
     height: 38px;
@@ -1304,7 +1452,7 @@ canvas {
 
     font-size: 14px;
 
-    display: none;
+    display: flex;
 
     align-items: center;
     justify-content: center;
@@ -1317,7 +1465,7 @@ canvas {
 
 #vol-btn:hover {
     background:
-        rgba(247,168,196,.15);
+        rgba(200, 182, 255, 0.2);
 
     transform:
         scale(1.08);
@@ -1338,8 +1486,8 @@ canvas {
     background:
         radial-gradient(
             circle at center,
-            rgba(35,12,22,.98),
-            rgba(7,2,5,.99)
+            rgba(45, 30, 74, 0.98),
+            rgba(14, 8, 24, 0.99)
         );
 
     display: none;
@@ -1369,16 +1517,16 @@ canvas {
 .final-glow {
     position: absolute;
 
-    width: 300px;
-    height: 300px;
+    width: 320px;
+    height: 320px;
 
     border-radius: 50%;
 
     background:
-        rgba(247,168,196,.08);
+        rgba(200, 182, 255, 0.15);
 
     filter:
-        blur(70px);
+        blur(80px);
 
     pointer-events: none;
 }
@@ -1393,7 +1541,7 @@ canvas {
 
 .final-small {
     color:
-        rgba(247,168,196,.55);
+        rgba(200, 182, 255, 0.7);
 
     letter-spacing: 5px;
 
@@ -1415,7 +1563,7 @@ canvas {
         clamp(2.2rem, 8vw, 3.5rem);
 
     color:
-        #fff0f4;
+        #f3ebff;
 
     line-height: 1.1;
 }
@@ -1424,7 +1572,7 @@ canvas {
     margin-top: 25px;
 
     color:
-        rgba(232,192,204,.7);
+        rgba(231, 198, 255, 0.85);
 
     line-height: 2;
 
@@ -1436,7 +1584,7 @@ canvas {
     display: block;
 
     color:
-        var(--accent-pink);
+        var(--accent-lila);
 
     font-family:
         'Cormorant Garamond',
@@ -1454,7 +1602,7 @@ canvas {
     margin-top: 30px;
 
     color:
-        rgba(255,255,255,.4);
+        rgba(255,255,255,.5);
 
     font-family:
         'Cormorant Garamond',
@@ -1478,7 +1626,7 @@ canvas {
     z-index: 300;
 
     color:
-        var(--accent-pink);
+        var(--accent-lila);
 
     font-size:
         var(--size);
@@ -1578,18 +1726,33 @@ canvas {
             bottom center;
     }
 
-    #special-flower {
+    #special-flower-center {
         bottom: 45px;
-
-        transform:
-            translateX(-50%)
-            scale(.65);
+        transform: translateX(-50%) scale(.65);
     }
 
-    #special-flower.bloom {
-        transform:
-            translateX(-50%)
-            scale(.65);
+    #special-flower-center.bloom {
+        transform: translateX(-50%) scale(.65);
+    }
+
+    #special-flower-left {
+        left: 36%;
+        bottom: 45px;
+        transform: translateX(-50%) scale(.5);
+    }
+
+    #special-flower-left.bloom {
+        transform: translateX(-50%) scale(.5);
+    }
+
+    #special-flower-right {
+        left: 64%;
+        bottom: 45px;
+        transform: translateX(-50%) scale(.5);
+    }
+
+    #special-flower-right.bloom {
+        transform: translateX(-50%) scale(.5);
     }
 
     .ui-header {
@@ -1624,6 +1787,7 @@ canvas {
 
     .dots {
         bottom: 27px;
+        gap: 8px;
     }
 
     #vol-btn {
@@ -1637,6 +1801,11 @@ canvas {
 
     #days-together {
         font-size: 2rem;
+    }
+
+    #moon {
+        top: 4%;
+        right: 5%;
     }
 }
 
@@ -1658,18 +1827,8 @@ canvas {
             scale(.68);
     }
 
-    #special-flower {
-        bottom: 35px;
-
-        transform:
-            translateX(-50%)
-            scale(.55);
-    }
-
-    #special-flower.bloom {
-        transform:
-            translateX(-50%)
-            scale(.55);
+    .special-flower-container {
+        bottom: 35px !important;
     }
 }
 
@@ -1686,21 +1845,24 @@ canvas {
 
 <div id="loader-screen">
 
-    <div class="loader-inner">
+    <div class="loader-flower-icon">
+        ✨
+    </div>
 
-        <div class="loader-symbol">
-            SYSTEM // NOSOTROS
+    <div class="loader-text-box">
+        <div class="loader-phrase">
+            "Hay personas que se convierten en refugio y momentos que se quedan grabados para siempre..."
         </div>
-
-        <div id="typewriter"></div>
-
+        <div class="loader-subphrase" id="loader-subphrase-text">
+            Para Katherine · Nuestro Camino Juntos
+        </div>
     </div>
 
 </div>
 
 
 <!-- ======================================================
-     INITIAL CARD
+     INITIAL CARD (RENOVADA CON MENSAJE MÁS ROMÁNTICO)
 ====================================================== -->
 
 <div id="initial-card">
@@ -1708,23 +1870,19 @@ canvas {
     <div class="card">
 
         <div class="card-flower">
-            🌻
+            🤍
         </div>
 
-        <h1 class="serif">
-            Para Katherine
+        <h1 class="serif" id="initial-card-title">
+            Para ti, Katherine
         </h1>
 
         <p class="card-main-text">
-            No puedo darte flores todos los días,
-            pero sí puedo intentar crear pequeños
-            lugares donde puedas recordar cuánto
-            te quiero.
+            Quiero recordarte lo increíble que ha sido tenerte en mi vida. Encontrar a alguien con quien reír, confiar y sentirme tan seguro no pasa todos los días.
         </p>
 
-        <p class="card-subtext">
-            Porque algunas cosas bonitas no deberían
-            marchitarse.
+        <p class="card-subtext" id="initial-card-subtext">
+            Este espacio es solo para ti, para recordar un poquito de todo lo hermoso que hemos vivido juntos.
         </p>
 
         <button
@@ -1743,7 +1901,7 @@ canvas {
      REPRODUCTOR AUDIO MP3
 ====================================================== -->
 
-<audio id="bg-audio" loop src="solamentetu.mp3"></audio>
+<audio id="bg-audio" loop src="Somos.mp3"></audio>
 
 <button
     id="vol-btn"
@@ -1758,6 +1916,43 @@ canvas {
 ====================================================== -->
 
 <div id="main-experience">
+
+    <!-- LUNA CRECIENTE NEÓN (SVG) -->
+    <div id="moon" onclick="toggleMoonSecret()">
+        <svg viewBox="0 0 100 100" width="80" height="80">
+            <path d="M 50,10 A 40,40 0 1,0 90,50 A 32,32 0 1,1 50,10 Z" fill="url(#moon-grad)"/>
+            <defs>
+                <linearGradient id="moon-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#ffe889" />
+                    <stop offset="100%" stop-color="#c8b6ff" />
+                </linearGradient>
+            </defs>
+        </svg>
+    </div>
+
+    <!-- NUBES BAJAS (NEBLINA) -->
+    <div class="cloud-layer"></div>
+    <div class="cloud-layer cloud-layer-2"></div>
+
+    <!-- CONSTELACIÓN K Y MENSAJE SECRETO DE LA LUNA -->
+    <div id="moon-secret-container">
+        <svg class="constellation-k" viewBox="0 0 100 120">
+            <!-- Trazos de la Constelación K -->
+            <line x1="25" y1="20" x2="25" y2="100" stroke="#c8b6ff" stroke-width="1.5" stroke-dasharray="3 3" />
+            <line x1="25" y1="60" x2="75" y2="20" stroke="#ffe889" stroke-width="1.5" stroke-dasharray="3 3" />
+            <line x1="25" y1="60" x2="75" y2="100" stroke="#ffe889" stroke-width="1.5" stroke-dasharray="3 3" />
+
+            <!-- Estrellas de los Vértices -->
+            <circle cx="25" cy="20" r="4" fill="#ffe889" />
+            <circle cx="25" cy="60" r="4" fill="#c8b6ff" />
+            <circle cx="25" cy="100" r="4" fill="#ffe889" />
+            <circle cx="75" cy="20" r="4.5" fill="#ffffff" />
+            <circle cx="75" cy="100" r="4.5" fill="#ffffff" />
+        </svg>
+        <div class="moon-secret-text">
+            "Eres mi estrella favorita en todo el universo ✨"
+        </div>
+    </div>
 
     <canvas id="c"></canvas>
 
@@ -1784,7 +1979,7 @@ canvas {
                 cy="62"
                 rx="62"
                 ry="22"
-                fill="#163d16"
+                fill="#123315"
                 transform="rotate(-15 80 62)"
             />
 
@@ -1793,7 +1988,7 @@ canvas {
                 cy="65"
                 rx="52"
                 ry="18"
-                fill="#1a4a1a"
+                fill="#18421c"
                 transform="rotate(10 200 65)"
             />
 
@@ -1802,7 +1997,7 @@ canvas {
                 cy="60"
                 rx="72"
                 ry="24"
-                fill="#133513"
+                fill="#0f2b12"
                 transform="rotate(-8 350 60)"
             />
 
@@ -1811,7 +2006,7 @@ canvas {
                 cy="63"
                 rx="58"
                 ry="20"
-                fill="#163d16"
+                fill="#123315"
                 transform="rotate(5 500 63)"
             />
 
@@ -1820,7 +2015,7 @@ canvas {
                 cy="60"
                 rx="66"
                 ry="22"
-                fill="#1a4a1a"
+                fill="#18421c"
                 transform="rotate(-12 650 60)"
             />
 
@@ -1829,7 +2024,7 @@ canvas {
                 cy="64"
                 rx="56"
                 ry="19"
-                fill="#133513"
+                fill="#0f2b12"
                 transform="rotate(8 800 64)"
             />
 
@@ -1838,7 +2033,7 @@ canvas {
                 cy="62"
                 rx="52"
                 ry="18"
-                fill="#163d16"
+                fill="#123315"
                 transform="rotate(-6 900 62)"
             />
 
@@ -1855,19 +2050,31 @@ canvas {
 
 
     <!-- ==================================================
-         SPECIAL FLOWER
+         3 SPECIAL FLOWERS
     ================================================== -->
 
-    <div id="special-flower">
+    <!-- Flor Especial Izquierda -->
+    <div id="special-flower-left" class="special-flower-container">
+        <div class="special-stem-elem"></div>
+        <div class="special-leaf-elem left"></div>
+        <div class="special-leaf-elem right"></div>
+        <div class="special-head-elem"></div>
+    </div>
 
-        <div id="special-stem"></div>
+    <!-- Flor Especial Central -->
+    <div id="special-flower-center" class="special-flower-container">
+        <div class="special-stem-elem"></div>
+        <div class="special-leaf-elem left"></div>
+        <div class="special-leaf-elem right"></div>
+        <div class="special-head-elem"></div>
+    </div>
 
-        <div class="special-leaf left"></div>
-
-        <div class="special-leaf right"></div>
-
-        <div id="special-head"></div>
-
+    <!-- Flor Especial Derecha -->
+    <div id="special-flower-right" class="special-flower-container">
+        <div class="special-stem-elem"></div>
+        <div class="special-leaf-elem left"></div>
+        <div class="special-leaf-elem right"></div>
+        <div class="special-head-elem"></div>
     </div>
 
 
@@ -1877,19 +2084,19 @@ canvas {
 
     <div class="ui-header">
 
-        <div class="badge">
-            KATHERINE · MI PERSONA FAVORITA
+        <div class="badge" id="badge-header-text">
+            KATHERINE · NUESTRO CAMINO JUNTOS
         </div>
 
         <div class="ui-title">
-            Un pequeño jardín hecho para ti.
+            Un pequeño rincón hecho para ti.
         </div>
 
         <div class="ui-subtitle">
-            Hay algunas cosas escondidas aquí...
+            Hay algunos recuerdos de nuestro tiempo juntos escondidos aquí...
         </div>
 
-        <!-- CONTADOR AGREGADO -->
+        <!-- CONTADOR DE DÍAS -->
 
         <div class="relationship-counter">
 
@@ -1913,7 +2120,7 @@ canvas {
     <div
         id="progress-text"
     >
-        RECUERDOS ENCONTRADOS · 0 / 4
+        RECUERDOS ENCONTRADOS · 0 / 8
     </div>
 
     <div
@@ -1921,6 +2128,10 @@ canvas {
         id="dots"
     >
 
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
         <div class="dot"></div>
         <div class="dot"></div>
         <div class="dot"></div>
@@ -1988,31 +2199,29 @@ canvas {
 
         <div class="final-content">
 
-            <div class="final-small">
-                PROTOCOLO COMPLETADO
+            <div class="final-small" id="final-small-text">
+                NUESTRO CAMINO JUNTOS
             </div>
 
             <h1 class="final-title">
-                Qué bonito que seas tú. ❤️
+                ¡Gracias por tanto, mi amor! ❤️
             </h1>
 
             <div class="final-message">
 
-                Encontraste todos los pequeños
-                secretos que escondí para ti.
+                Encontraste todos los recuerdos que guardé para ti.
 
-                <span class="final-highlight">
-                    Y si pudiera elegir otra vez,
-                    volvería a encontrarte a ti.
+                <span class="final-highlight" id="final-highlight-text">
+                    Gracias por todo este tiempo tan lindo a tu lado.
                 </span>
 
                 <span style="
                     display:block;
                     margin-top:15px;
                 ">
-                    No sé cuántas páginas nos quedan
-                    por escribir, pero sí sé con quién
-                    quiero seguir escribiéndolas.
+                    Este es apenas el comienzo de muchos capítulos más que quiero escribir contigo.
+                    <br>
+                    Te amo mi pastelito de fresas con crema ❤️
                 </span>
 
             </div>
@@ -2031,162 +2240,19 @@ canvas {
 <script>
 
 /* =========================================================
-   LOADER
-========================================================= */
-
-const termText =
-`> Iniciando protocolo_nosotros.exe...
-> Estableciendo conexión...
-> Analizando recuerdos...
-> Buscando a mi persona favorita...
-> Katherine encontrada. ❤️
-> Verificando estado de la relación...
-> Resultado: MI NOVIA. ✓
-> Guardando cada momento juntos...
-> Cuidando nuestro pequeño jardín...
-> Nuevos recuerdos por crear...
->
-> Ya no estoy buscando a la persona indicada...
-> La encontré.
->
-> Protocolo: TÚ Y YO. ❤️`;
-
-let charIndex = 0;
-
-const typewriter =
-    document.getElementById("typewriter");
-
-
-function typeEffect() {
-
-    if (charIndex < termText.length) {
-
-        const char =
-            termText.charAt(charIndex);
-
-        if (char === "\n") {
-
-            typewriter.innerHTML += "<br>";
-
-        } else {
-
-            typewriter.innerHTML += char;
-
-        }
-
-        charIndex++;
-
-        setTimeout(
-            typeEffect,
-            char === "\n"
-                ? 160
-                : 32
-        );
-
-    } else {
-
-        typewriter.innerHTML +=
-            '<span class="cursor"></span>';
-
-        setTimeout(() => {
-
-            const loader =
-                document.getElementById(
-                    "loader-screen"
-                );
-
-            loader.style.opacity = "0";
-
-            setTimeout(() => {
-
-                loader.style.display = "none";
-
-                document.getElementById(
-                    "initial-card"
-                ).style.display = "flex";
-
-            }, 1100);
-
-        }, 1300);
-    }
-}
-
-
-/* =========================================================
-   ❤️ CONTADOR DE DÍAS JUNTOS
-========================================================= */
-
-function updateRelationshipCounter() {
-
-    /*
-        FECHA EN LA QUE NOS HICIMOS NOVIOS
-
-        Martes 25 de agosto de 2026
-    */
-
-    const relationshipStart =
-        new Date(2026, 7, 25);
-
-    const today =
-        new Date();
-
-
-    /*
-        Quitamos las horas para que
-        el contador cuente días completos
-        y no dependa de la hora.
-    */
-
-    relationshipStart.setHours(
-        0,
-        0,
-        0,
-        0
-    );
-
-    today.setHours(
-        0,
-        0,
-        0,
-        0
-    );
-
-
-    const difference =
-        today.getTime() -
-        relationshipStart.getTime();
-
-
-    const days =
-        Math.max(
-            0,
-            Math.floor(
-                difference /
-                (1000 * 60 * 60 * 24)
-            )
-        );
-
-
-    const counter =
-        document.getElementById(
-            "days-together"
-        );
-
-
-    if (counter) {
-
-        counter.textContent =
-            days;
-
-    }
-}
-
-
-/* =========================================================
-   MUSIC (AUDIO MP3 NATIVO)
+   MUSIC (REPRODUCCIÓN AUTOMÁTICA)
 ========================================================= */
 
 const bgAudio = document.getElementById("bg-audio");
+
+function playAudio() {
+    if (bgAudio) {
+        bgAudio.volume = 0.4;
+        bgAudio.play().catch(e => {
+            console.log("Auto-play restringido por el navegador. Se reproducirá al interactuar.");
+        });
+    }
+}
 
 function toggleMute() {
     if (!bgAudio) return;
@@ -2200,16 +2266,155 @@ function toggleMute() {
     }
 }
 
+document.addEventListener("click", function startMusicOnFirstInteraction() {
+    if (bgAudio && bgAudio.paused) {
+        bgAudio.play().catch(() => {});
+    }
+    document.removeEventListener("click", startMusicOnFirstInteraction);
+}, { once: true });
+
+
 /* =========================================================
-   UNLOCK
+   LOADER TIMING
+========================================================= */
+
+function startApp() {
+    playAudio();
+
+    setTimeout(() => {
+        const loader = document.getElementById("loader-screen");
+        loader.style.opacity = "0";
+
+        setTimeout(() => {
+            loader.style.display = "none";
+            document.getElementById("initial-card").style.display = "flex";
+        }, 1200);
+
+    }, 3800);
+}
+
+
+/* =========================================================
+   ❤️ CONTADOR DE DÍAS Y ACTUALIZACIÓN DINÁMICA DE TEXTOS
+========================================================= */
+
+let secretPoints = [];
+
+function updateRelationshipCounter() {
+
+    /* FECHA EXACTA EN LA QUE SE HICIERON NOVIOS (25 DE AGOSTO DE 2026) */
+    const relationshipStart = new Date(2026, 7, 25);
+    const today = new Date();
+
+    relationshipStart.setHours(0, 0, 0, 0);
+    today.setHours(0, 0, 0, 0);
+
+    const difference = today.getTime() - relationshipStart.getTime();
+
+    const days = Math.max(
+        0,
+        Math.floor(difference / (1000 * 60 * 60 * 24))
+    );
+
+    // Actualiza el número de días
+    const counter = document.getElementById("days-together");
+    if (counter) {
+        counter.textContent = days;
+    }
+
+    // Cálculo dinámico para meses
+    const mesesAprox = Math.floor(days / 30);
+    let textoMeses = "";
+    if (mesesAprox <= 1) {
+        textoMeses = "1er Mes";
+    } else {
+        textoMeses = `${mesesAprox} Meses`;
+    }
+
+    // Actualización de textos planos dinámicos en HTML
+    const cardTitle = document.getElementById("initial-card-title");
+    if (cardTitle) {
+        cardTitle.textContent = `Feliz ${textoMeses}, Katherine`;
+    }
+
+    const cardSubtext = document.getElementById("initial-card-subtext");
+    if (cardSubtext) {
+        cardSubtext.textContent = `Este espacio es solo para ti, para recordar un poquito de todo lo hermoso que hemos vivido en estos ${days} días.`;
+    }
+
+    const loaderSubphrase = document.getElementById("loader-subphrase-text");
+    if (loaderSubphrase) {
+        loaderSubphrase.textContent = `Para Katherine · Nuestro ${textoMeses}`;
+    }
+
+    const badgeHeader = document.getElementById("badge-header-text");
+    if (badgeHeader) {
+        badgeHeader.textContent = `KATHERINE · NUESTRO ${textoMeses.toUpperCase()}`;
+    }
+
+    const finalSmall = document.getElementById("final-small-text");
+    if (finalSmall) {
+        finalSmall.textContent = `NUESTRO ${textoMeses.toUpperCase()}`;
+    }
+
+    const finalHighlight = document.getElementById("final-highlight-text");
+    if (finalHighlight) {
+        finalHighlight.textContent = `Gracias por estos primeros ${days} días tan lindos a tu lado.`;
+    }
+
+    // Actualizar objeto de Recuerdos
+    secretPoints = [
+        {
+            e: "🌸",
+            t: "El comienzo de todo",
+            m: "Aquel 25 de agosto tomamos la decisión de empezar esta historia juntos. Parecía el inicio de algo lindo, pero ha superado todo lo que imaginé."
+        },
+        {
+            e: "☕",
+            t: "Tu amor y tus cuidados",
+            m: "Gracias por estar siempre para mí. Este tiempo juntos ha sido hermoso, brindándome todo tu amor y tus cuidados en cada momento."
+        },
+        {
+            e: "🎬",
+            t: "Cine y palomitas juntos",
+            m: "Ir al cine contigo no es solo ver una película, es disfrutar de tu compañía, tomarte de la mano en la oscuridad y compartir un momento solo para los dos."
+        },
+        {
+            e: "🎁",
+            t: "Detalles que nacen del alma",
+            m: "Me encanta sorprenderte con pequeños regalos digitales y creaciones pensadas solo para ti, porque cada una lleva una parte de lo que siento por ti."
+        },
+        {
+            e: "🤍",
+            t: `${days} días a tu lado`,
+            m: `Cada risa compartida, cada mensaje diario y cada escapadita juntos en estos ${days} días me han demostrado lo increíble y especial que eres para mí.`
+        },
+        {
+            e: "✨",
+            t: "Nuestra complicidad",
+            m: "Me fascina lo fácil que es conectar contigo. Tenemos esa complicidad única donde las miradas y las sonrisas lo dicen absolutamente todo."
+        },
+        {
+            e: "🌷",
+            t: "Un cariño que crece",
+            m: "En todo este tiempo juntos me he dado cuenta de cómo tu presencia ilumina mis días. Estar a tu lado me hace ser una mejor versión de mí."
+        },
+        {
+            e: "🌻",
+            t: "Cuidando nuestro jardín",
+            m: "Este tiempo juntos es apenas el primer brote de un jardín enorme que quiero ver florecer contigo. Gracias por estar a mi lado, mi amor."
+        }
+    ];
+}
+
+
+/* =========================================================
+   UNLOCK & EFECTOS DINÁMICOS
 ========================================================= */
 
 function unlockExperience() {
-    // Activa y reproduce el archivo de audio MP3
-    if (bgAudio) {
-        bgAudio.volume = 0.4;
-        bgAudio.play().catch(e => console.log("Error de reproducción:", e));
-        document.getElementById("vol-btn").style.display = "flex";
+    if (bgAudio && bgAudio.paused) {
+        bgAudio.play().catch(e => console.log(e));
     }
 
     const card = document.getElementById("initial-card");
@@ -2224,11 +2429,43 @@ function unlockExperience() {
             main.style.opacity = "1";
             initCanvas();
             createGarden();
-            createSpecialFlower();
+            createSpecialFlowers();
             createSecrets();
+            startShootingStars();
         }, 80);
     }, 900);
 }
+
+/* Generador de Estrellas Fugaces */
+function startShootingStars() {
+    setInterval(() => {
+        if (Math.random() > 0.4) {
+            const star = document.createElement("div");
+            star.className = "shooting-star";
+            star.style.top = Math.random() * 40 + "%";
+            star.style.left = Math.random() * 50 + "%";
+            document.getElementById("main-experience").appendChild(star);
+
+            setTimeout(() => {
+                star.remove();
+            }, 1900);
+        }
+    }, 4500);
+}
+
+/* Interactividad de la Luna Creciente */
+function toggleMoonSecret() {
+    const secret = document.getElementById("moon-secret-container");
+    if (secret.classList.contains("show")) {
+        secret.classList.remove("show");
+    } else {
+        secret.classList.add("show");
+        setTimeout(() => {
+            secret.classList.remove("show");
+        }, 5000);
+    }
+}
+
 
 /* =========================================================
    SUNFLOWER
@@ -2239,112 +2476,54 @@ function sunflowerSVG(r, seed) {
     const cx = r + 12;
     const cy = r + 12;
 
-    const pc =
-        [16,14,18,14,16][seed % 5];
+    const pc = [16,14,18,14,16][seed % 5];
 
-    const yellows =
-        [
-            ["#ffd700","#ffec4f"],
-            ["#f5c800","#ffe135"],
-            ["#ffcf10","#fff176"],
-            ["#e8b800","#f5d020"],
-            ["#ffc200","#ffe55a"]
-        ][seed % 5];
+    const yellows = [
+        ["#ffd700","#ffec4f"],
+        ["#f5c800","#ffe135"],
+        ["#ffcf10","#fff176"],
+        ["#e8b800","#f5d020"],
+        ["#ffc200","#ffe55a"]
+    ][seed % 5];
 
-    const centerCol =
-        [
-            "#3a1500",
-            "#2e1000",
-            "#4a1a00",
-            "#321200"
-        ][seed % 4];
+    const centerCol = [
+        "#3a1500",
+        "#2e1000",
+        "#4a1a00",
+        "#321200"
+    ][seed % 4];
 
     let petals = "";
 
-    for (
-        let i = 0;
-        i < pc;
-        i++
-    ) {
+    for (let i = 0; i < pc; i++) {
 
-        const angle =
-            i * 360 / pc;
-
-        const main =
-            i % 2 === 0;
+        const angle = i * 360 / pc;
+        const main = i % 2 === 0;
 
         petals += `
             <ellipse
                 cx="${cx}"
-                cy="${cy - (
-                    main
-                        ? r * .50
-                        : r * .41
-                )}"
-                rx="${
-                    main
-                        ? r * .27
-                        : r * .20
-                }"
-                ry="${
-                    main
-                        ? r * .88
-                        : r * .70
-                }"
-                fill="${
-                    main
-                        ? yellows[0]
-                        : yellows[1]
-                }"
-                opacity="${
-                    main
-                        ? .97
-                        : .82
-                }"
-                transform="
-                    rotate(
-                        ${angle}
-                        ${cx}
-                        ${cy}
-                    )
-                "
+                cy="${cy - (main ? r * .50 : r * .41)}"
+                rx="${main ? r * .27 : r * .20}"
+                ry="${main ? r * .88 : r * .70}"
+                fill="${main ? yellows[0] : yellows[1]}"
+                opacity="${main ? .97 : .82}"
+                transform="rotate(${angle} ${cx} ${cy})"
             />
         `;
     }
 
     let seeds = "";
 
-    for (
-        let i = 0;
-        i < 22;
-        i++
-    ) {
+    for (let i = 0; i < 22; i++) {
 
-        const a =
-            (
-                i * 16.4 +
-                seed * 13
-            ) *
-            Math.PI / 180;
-
-        const ri =
-            [
-                r*.10,
-                r*.24,
-                r*.38,
-                r*.14
-            ][i % 4];
+        const a = (i * 16.4 + seed * 13) * Math.PI / 180;
+        const ri = [r*.10, r*.24, r*.38, r*.14][i % 4];
 
         seeds += `
             <circle
-                cx="${
-                    cx +
-                    ri * Math.cos(a)
-                }"
-                cy="${
-                    cy +
-                    ri * Math.sin(a)
-                }"
+                cx="${cx + ri * Math.cos(a)}"
+                cy="${cy + ri * Math.sin(a)}"
                 r="1.4"
                 fill="#6b3000"
                 opacity=".7"
@@ -2352,8 +2531,7 @@ function sunflowerSVG(r, seed) {
         `;
     }
 
-    const vw =
-        (r + 12) * 2;
+    const vw = (r + 12) * 2;
 
     return `
         <svg
@@ -2363,25 +2541,12 @@ function sunflowerSVG(r, seed) {
             xmlns="http://www.w3.org/2000/svg"
             overflow="visible"
         >
-
             ${petals}
 
-            <circle
-                cx="${cx}"
-                cy="${cy}"
-                r="${r*.44}"
-                fill="${centerCol}"
-            />
-
-            <circle
-                cx="${cx}"
-                cy="${cy}"
-                r="${r*.34}"
-                fill="#1e0a00"
-            />
+            <circle cx="${cx}" cy="${cy}" r="${r*.44}" fill="${centerCol}" />
+            <circle cx="${cx}" cy="${cy}" r="${r*.34}" fill="#1e0a00" />
 
             ${seeds}
-
         </svg>
     `;
 }
@@ -2393,322 +2558,80 @@ function sunflowerSVG(r, seed) {
 
 function createGarden() {
 
-    const container =
-        document.getElementById(
-            "garden-container"
-        );
+    const container = document.getElementById("garden-container");
 
     const specs = [
-
-        {
-            r:30,
-            stemH:155,
-            stemW:4,
-            sw:"sw1",
-            swDur:"3.8s",
-            swDel:"-.5s",
-            gpDur:"4s",
-            gpDel:".3s",
-            gc:"#ffc000",
-            seed:0,
-            lw:32,
-            lh:13,
-            mx:"-14px"
-        },
-
-        {
-            r:37,
-            stemH:195,
-            stemW:5,
-            sw:"sw2",
-            swDur:"4.4s",
-            swDel:"-1.2s",
-            gpDur:"5s",
-            gpDel:".8s",
-            gc:"#ffe000",
-            seed:1,
-            lw:38,
-            lh:15,
-            mx:"-16px"
-        },
-
-        {
-            r:33,
-            stemH:170,
-            stemW:4,
-            sw:"sw3",
-            swDur:"5s",
-            swDel:"-.2s",
-            gpDur:"4.5s",
-            gpDel:"1.1s",
-            gc:"#ffd500",
-            seed:2,
-            lw:34,
-            lh:14,
-            mx:"-14px"
-        },
-
-        {
-            r:46,
-            stemH:250,
-            stemW:6,
-            sw:"sw1",
-            swDur:"4.8s",
-            swDel:"-2s",
-            gpDur:"5.5s",
-            gpDel:"0s",
-            gc:"#ffee00",
-            seed:3,
-            lw:46,
-            lh:18,
-            mx:"-18px"
-        },
-
-        {
-            r:34,
-            stemH:175,
-            stemW:4,
-            sw:"sw3",
-            swDur:"4.2s",
-            swDel:"-.8s",
-            gpDur:"4.2s",
-            gpDel:".6s",
-            gc:"#ffd800",
-            seed:4,
-            lw:35,
-            lh:14,
-            mx:"-14px"
-        },
-
-        {
-            r:38,
-            stemH:200,
-            stemW:5,
-            sw:"sw2",
-            swDur:"3.6s",
-            swDel:"-1.8s",
-            gpDur:"4.8s",
-            gpDel:"1.4s",
-            gc:"#ffe500",
-            seed:0,
-            lw:38,
-            lh:15,
-            mx:"-16px"
-        },
-
-        {
-            r:29,
-            stemH:150,
-            stemW:4,
-            sw:"sw1",
-            swDur:"4.6s",
-            swDel:"-.4s",
-            gpDur:"3.8s",
-            gpDel:".9s",
-            gc:"#ffc800",
-            seed:2,
-            lw:30,
-            lh:12,
-            mx:"-12px"
-        }
-
+        { r:30, stemH:155, stemW:4, sw:"sw1", swDur:"3.8s", swDel:"-.5s", gpDur:"4s", gpDel:".3s", gc:"#ffc000", seed:0, lw:32, lh:13, mx:"-14px" },
+        { r:37, stemH:195, stemW:5, sw:"sw2", swDur:"4.4s", swDel:"-1.2s", gpDur:"5s", gpDel:".8s", gc:"#ffe000", seed:1, lw:38, lh:15, mx:"-16px" },
+        { r:33, stemH:170, stemW:4, sw:"sw3", swDur:"5s", swDel:"-.2s", gpDur:"4.5s", gpDel:"1.1s", gc:"#ffd500", seed:2, lw:34, lh:14, mx:"-14px" },
+        { r:46, stemH:250, stemW:6, sw:"sw1", swDur:"4.8s", swDel:"-2s", gpDur:"5.5s", gpDel:"0s", gc:"#ffee00", seed:3, lw:46, lh:18, mx:"-18px" },
+        { r:34, stemH:175, stemW:4, sw:"sw3", swDur:"4.2s", swDel:"-.8s", gpDur:"4.2s", gpDel:".6s", gc:"#ffd800", seed:4, lw:35, lh:14, mx:"-14px" },
+        { r:38, stemH:200, stemW:5, sw:"sw2", swDur:"3.6s", swDel:"-1.8s", gpDur:"4.8s", gpDel:"1.4s", gc:"#ffe500", seed:0, lw:38, lh:15, mx:"-16px" },
+        { r:29, stemH:150, stemW:4, sw:"sw1", swDur:"4.6s", swDel:"-.4s", gpDur:"3.8s", gpDel:".9s", gc:"#ffc800", seed:2, lw:30, lh:12, mx:"-12px" }
     ];
 
-
     const swAnims = {
-
-        sw1: [
-            "-1.8deg",
-            "1.8deg"
-        ],
-
-        sw2: [
-            "2deg",
-            "-1.2deg"
-        ],
-
-        sw3: [
-            "-1deg",
-            "2.5deg"
-        ]
+        sw1: ["-1.8deg", "1.8deg"],
+        sw2: ["2deg", "-1.2deg"],
+        sw3: ["-1deg", "2.5deg"]
     };
-
 
     specs.forEach((s,i) => {
 
-        const plant =
-            document.createElement(
-                "div"
-            );
+        const plant = document.createElement("div");
+        plant.className = "plant";
+        plant.dataset.index = i;
 
-        plant.className =
-            "plant";
+        const [r1, r2] = swAnims[s.sw];
+        const kid = `sw_${i}`;
 
-
-        const [
-            r1,
-            r2
-        ] =
-            swAnims[s.sw];
-
-
-        const kid =
-            `sw_${i}`;
-
-
-        const st =
-            document.createElement(
-                "style"
-            );
-
+        const st = document.createElement("style");
         st.textContent = `
-
             @keyframes ${kid} {
-
-                0%,100% {
-                    transform:
-                        rotate(${r1});
-                }
-
-                50% {
-                    transform:
-                        rotate(${r2});
-                }
-
+                0%,100% { transform: rotate(${r1}); }
+                50% { transform: rotate(${r2}); }
             }
-
         `;
-
         document.head.appendChild(st);
 
-
         plant.style.cssText = `
-
-            margin:
-                0 ${s.mx};
-
-            animation:
-                ${kid}
-                ${s.swDur}
-                ease-in-out
-                infinite
-                ${s.swDel};
-
+            margin: 0 ${s.mx};
+            animation: ${kid} ${s.swDur} ease-in-out infinite ${s.swDel};
             opacity: 0;
-
-            transform:
-                translateY(25px);
-
+            transform: translateY(25px);
         `;
 
-
-        const fd =
-            document.createElement(
-                "div"
-            );
-
-        fd.className =
-            "flower";
-
+        const fd = document.createElement("div");
+        fd.className = "flower";
         fd.style.cssText = `
-
             width:${(s.r+12)*2}px;
-
             height:${(s.r+12)*2}px;
-
             --gc:${s.gc};
-
-            animation:
-                gp
-                ${s.gpDur}
-                ease-in-out
-                infinite
-                ${s.gpDel};
-
+            animation: gp ${s.gpDur} ease-in-out infinite ${s.gpDel};
         `;
+        fd.innerHTML = sunflowerSVG(s.r, s.seed);
 
-        fd.innerHTML =
-            sunflowerSVG(
-                s.r,
-                s.seed
-            );
+        const sd = document.createElement("div");
+        sd.className = "stem";
+        sd.style.cssText = `width:${s.stemW}px; height:${s.stemH}px;`;
 
+        const l1 = document.createElement("div");
+        l1.className = "leaf left";
+        l1.style.cssText = `width:${s.lw}px; height:${s.lh}px; top:${Math.floor(s.stemH*.28)}px;`;
 
-        const sd =
-            document.createElement(
-                "div"
-            );
-
-        sd.className =
-            "stem";
-
-        sd.style.cssText = `
-
-            width:${s.stemW}px;
-
-            height:${s.stemH}px;
-
-        `;
-
-
-        const l1 =
-            document.createElement(
-                "div"
-            );
-
-        l1.className =
-            "leaf left";
-
-        l1.style.cssText = `
-
-            width:${s.lw}px;
-
-            height:${s.lh}px;
-
-            top:${Math.floor(
-                s.stemH*.28
-            )}px;
-
-        `;
-
-
-        const l2 =
-            document.createElement(
-                "div"
-            );
-
-        l2.className =
-            "leaf right";
-
-        l2.style.cssText = `
-
-            width:${s.lw}px;
-
-            height:${s.lh}px;
-
-            top:${Math.floor(
-                s.stemH*.55
-            )}px;
-
-        `;
-
+        const l2 = document.createElement("div");
+        l2.className = "leaf right";
+        l2.style.cssText = `width:${s.lw}px; height:${s.lh}px; top:${Math.floor(s.stemH*.55)}px;`;
 
         sd.appendChild(l1);
         sd.appendChild(l2);
-
         plant.appendChild(fd);
         plant.appendChild(sd);
-
         container.appendChild(plant);
 
-
         setTimeout(() => {
-
             plant.style.opacity = "1";
-
-            plant.style.transform =
-                "translateY(0)";
-
+            plant.style.transform = "translateY(0)";
         }, 300 + i * 180);
 
     });
@@ -2716,371 +2639,136 @@ function createGarden() {
 
 
 /* =========================================================
-   SPECIAL FLOWER
+   SPECIAL FLOWERS
 ========================================================= */
 
-function createSpecialFlower() {
+function createSpecialFlowers() {
+    const ids = ["special-flower-center", "special-flower-left", "special-flower-right"];
 
-    const head =
-        document.getElementById(
-            "special-head"
-        );
+    ids.forEach(id => {
+        const elem = document.getElementById(id);
+        const head = elem.querySelector(".special-head-elem");
+        const petals = 20;
 
-    const petals = 20;
+        for (let i = 0; i < petals; i++) {
+            const petal = document.createElement("div");
+            petal.className = "special-petal-elem";
+            petal.style.transform = `rotate(${i * (360/petals)}deg)`;
+            head.appendChild(petal);
+        }
 
-    for (
-        let i = 0;
-        i < petals;
-        i++
-    ) {
-
-        const petal =
-            document.createElement(
-                "div"
-            );
-
-        petal.className =
-            "special-petal";
-
-        petal.style.transform =
-            `rotate(${i * (360/petals)}deg)`;
-
-        head.appendChild(petal);
-    }
-
-    const center =
-        document.createElement(
-            "div"
-        );
-
-    center.className =
-        "special-center";
-
-    head.appendChild(center);
+        const center = document.createElement("div");
+        center.className = "special-center-elem";
+        head.appendChild(center);
+    });
 }
 
 
 /* =========================================================
-   CONSTELLATION
+   CONSTELLATION (LILA / LAVANDA)
 ========================================================= */
 
-const canvas =
-    document.getElementById("c");
-
-const ctx =
-    canvas.getContext("2d");
-
+const canvas = document.getElementById("c");
+const ctx = canvas.getContext("2d");
 let particles = [];
 
-const isMob =
-    window.innerWidth < 768;
-
-const PCOUNT =
-    isMob ? 35 : 70;
-
-const MAXDIST =
-    isMob ? 95 : 130;
-
+const isMob = window.innerWidth < 768;
+const PCOUNT = isMob ? 35 : 70;
+const MAXDIST = isMob ? 95 : 130;
 
 function initCanvas() {
+    canvas.width = window.innerWidth * window.devicePixelRatio;
+    canvas.height = window.innerHeight * window.devicePixelRatio;
+    canvas.style.width = window.innerWidth + "px";
+    canvas.style.height = window.innerHeight + "px";
 
-    canvas.width =
-        window.innerWidth *
-        window.devicePixelRatio;
-
-    canvas.height =
-        window.innerHeight *
-        window.devicePixelRatio;
-
-    canvas.style.width =
-        window.innerWidth + "px";
-
-    canvas.style.height =
-        window.innerHeight + "px";
-
-    ctx.scale(
-        window.devicePixelRatio,
-        window.devicePixelRatio
-    );
+    ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
 
     particles = [];
-
-    for (
-        let i = 0;
-        i < PCOUNT;
-        i++
-    ) {
-
-        particles.push(
-            new Particle()
-        );
+    for (let i = 0; i < PCOUNT; i++) {
+        particles.push(new Particle());
     }
 
-    requestAnimationFrame(
-        render
-    );
+    requestAnimationFrame(render);
 }
 
-
 class Particle {
-
     constructor() {
         this.reset();
     }
 
-
     reset() {
+        this.x = Math.random() * window.innerWidth;
+        this.y = Math.random() * window.innerHeight;
+        this.vx = (Math.random()-.5) * .22;
+        this.vy = (Math.random()-.5) * .22;
+        this.sz = Math.random()*1.8+.4;
 
-        this.x =
-            Math.random() *
-            window.innerWidth;
-
-        this.y =
-            Math.random() *
-            window.innerHeight;
-
-        this.vx =
-            (Math.random()-.5) *
-            .22;
-
-        this.vy =
-            (Math.random()-.5) *
-            .22;
-
-        this.sz =
-            Math.random()*1.8+.4;
-
-
-        const t =
-            Math.random();
-
+        const t = Math.random();
 
         if (t > .6) {
-
-            this.r = 245;
-            this.g = 200;
-            this.b = 66;
-
-        }
-
-        else if (t > .3) {
-
-            this.r = 247;
-            this.g = 168;
-            this.b = 196;
-
-        }
-
-        else {
-
-            this.r = 255;
-            this.g = 255;
-            this.b = 255;
+            this.r = 255; this.g = 212; this.b = 71;
+        } else if (t > .3) {
+            this.r = 200; this.g = 182; this.b = 255;
+        } else {
+            this.r = 184; this.g = 192; this.b = 255;
         }
     }
 
-
     update() {
-
         this.x += this.vx;
         this.y += this.vy;
 
-
-        if (
-            this.x < 0 ||
-            this.x > window.innerWidth
-        ) {
-
-            this.vx *= -1;
-        }
-
-
-        if (
-            this.y < 0 ||
-            this.y > window.innerHeight
-        ) {
-
-            this.vy *= -1;
-        }
+        if (this.x < 0 || this.x > window.innerWidth) this.vx *= -1;
+        if (this.y < 0 || this.y > window.innerHeight) this.vy *= -1;
     }
 }
 
-
 let lastTs = 0;
 
-
 function render(ts) {
-
-    if (
-        isMob &&
-        ts-lastTs < 24
-    ) {
-
-        requestAnimationFrame(
-            render
-        );
-
+    if (isMob && ts-lastTs < 24) {
+        requestAnimationFrame(render);
         return;
     }
-
-
     lastTs = ts;
 
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
-    ctx.clearRect(
-        0,
-        0,
-        window.innerWidth,
-        window.innerHeight
-    );
+    particles.forEach(p => p.update());
 
-
-    particles.forEach(
-        p => p.update()
-    );
-
-
-    for (
-        let i = 0;
-        i < particles.length;
-        i++
-    ) {
-
-        for (
-            let j = i+1;
-            j < particles.length;
-            j++
-        ) {
-
-            const dx =
-                particles[i].x -
-                particles[j].x;
-
-            const dy =
-                particles[i].y -
-                particles[j].y;
-
-            const d =
-                Math.sqrt(
-                    dx*dx+
-                    dy*dy
-                );
-
+    for (let i = 0; i < particles.length; i++) {
+        for (let j = i+1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const d = Math.sqrt(dx*dx + dy*dy);
 
             if (d < MAXDIST) {
-
-                const a =
-                    (
-                        1-
-                        d/MAXDIST
-                    )*.15;
-
-
-                ctx.strokeStyle =
-                    `rgba(
-                        ${particles[i].r},
-                        ${particles[i].g},
-                        ${particles[i].b},
-                        ${a}
-                    )`;
-
-
+                const a = (1 - d/MAXDIST) * .18;
+                ctx.strokeStyle = `rgba(${particles[i].r}, ${particles[i].g}, ${particles[i].b}, ${a})`;
                 ctx.lineWidth = .5;
-
                 ctx.beginPath();
-
-                ctx.moveTo(
-                    particles[i].x,
-                    particles[i].y
-                );
-
-                ctx.lineTo(
-                    particles[j].x,
-                    particles[j].y
-                );
-
+                ctx.moveTo(particles[i].x, particles[i].y);
+                ctx.lineTo(particles[j].x, particles[j].y);
                 ctx.stroke();
             }
         }
     }
 
+    particles.forEach(p => {
+        ctx.fillStyle = `rgba(${p.r}, ${p.g}, ${p.b}, .6)`;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.sz, 0, Math.PI*2);
+        ctx.fill();
+    });
 
-    particles.forEach(
-        p => {
-
-            ctx.fillStyle =
-                `rgba(
-                    ${p.r},
-                    ${p.g},
-                    ${p.b},
-                    .6
-                )`;
-
-            ctx.beginPath();
-
-            ctx.arc(
-                p.x,
-                p.y,
-                p.sz,
-                0,
-                Math.PI*2
-            );
-
-            ctx.fill();
-        }
-    );
-
-
-    requestAnimationFrame(
-        render
-    );
+    requestAnimationFrame(render);
 }
 
 
 /* =========================================================
    SECRET MOMENTS
 ========================================================= */
-
-const secretPoints = [
-
-    {
-        e: "🌸",
-
-        t: "Cómo empezó",
-
-        m:
-        "Sin darme cuenta, pasaste de ser alguien con quien hablaba a convertirte en alguien que esperaba encontrar todos los días. Y creo que ahí empezó algo muy bonito."
-    },
-
-    {
-        e: "🤍",
-
-        t: "Lo que sentí contigo",
-
-        m:
-        "Cada salida, cada conversación, cada risa y cada pequeño momento contigo hizo que poco a poco fueras ocupando un lugar que ya no quería compartir con nadie más."
-    },
-
-    {
-        e: "✨",
-
-        t: "Ahora puedo decirlo",
-
-        m:
-        "Me sigue pareciendo bonito poder decir que eres mi novia. Pero más que el título, me encanta todo lo que existe detrás de esas dos palabras: tú, yo y todo lo que estamos empezando a construir."
-    },
-
-    {
-        e: "🌻",
-
-        t: "Nuestro jardín",
-
-        m:
-        "Estas flores no son reales, pero representan algo que sí lo es. Quiero cuidar lo nuestro, hacerlo crecer, disfrutarlo y seguir creando recuerdos contigo. Porque ahora este jardín también es un poquito nuestro."
-    }
-
-];
-
 
 let foundNodes = 0;
 
@@ -3091,158 +2779,66 @@ let foundNodes = 0;
 
 function createSecrets() {
 
-    secretPoints.forEach(
-        (p,index) => {
+    secretPoints.forEach((p,index) => {
 
-            const node =
-                document.createElement(
-                    "div"
-                );
+        const node = document.createElement("div");
+        node.className = "secret-node";
 
-            node.className =
-                "secret-node";
+        const positions = [
+            { left: 15, top: 28 },
+            { left: 35, top: 22 },
+            { left: 65, top: 22 },
+            { left: 82, top: 28 },
+            { left: 20, top: 46 },
+            { left: 40, top: 48 },
+            { left: 60, top: 48 },
+            { left: 80, top: 46 }
+        ];
 
+        node.style.left = positions[index].left + "%";
+        node.style.top = positions[index].top + "%";
 
-            const positions = [
+        node.innerHTML = `<div class="firefly"></div>`;
 
-                {
-                    left: 18,
-                    top: 30
-                },
+        const firefly = node.querySelector(".firefly");
+        firefly.style.animationDelay = `${index * -.4}s`;
 
-                {
-                    left: 75,
-                    top: 27
-                },
+        node.onclick = () => {
 
-                {
-                    left: 28,
-                    top: 47
-                },
+            if (node.classList.contains("found")) return;
 
-                {
-                    left: 68,
-                    top: 48
-                }
+            foundNodes++;
+            node.classList.add("found");
 
-            ];
+            showPopup(p, foundNodes);
 
+            document.querySelectorAll(".dot")[foundNodes-1].classList.add("active");
+            updateProgress();
+            createHearts(node);
 
-            node.style.left =
-                positions[index].left + "%";
+            if (foundNodes === 3) {
+                document.getElementById("garden-ground").style.opacity = ".85";
+            }
 
-            node.style.top =
-                positions[index].top + "%";
+            if (foundNodes === 5) {
+                document.querySelector(".ui-subtitle").textContent = "Vas encontrando cada rincón de nuestra historia...";
+            }
 
+            if (foundNodes === 8) {
+                document.querySelector(".ui-subtitle").textContent = "¡Un momento especial para ti!";
 
-            node.innerHTML = `
-                <div class="firefly"></div>
-            `;
+                /* PAUSA DE 10 SEGUNDOS EN EL ÚLTIMO RECUERDO ANTES DE CONTINUAR */
+                setTimeout(() => {
+                    bloomFlowers();
+                }, 10000);
 
+                setTimeout(showFinal, 38000);
+            }
 
-            const firefly =
-                node.querySelector(
-                    ".firefly"
-                );
+        };
 
-            firefly.style.animationDelay =
-                `${index * -.7}s`;
-
-
-            node.onclick = () => {
-
-                if (
-                    node.classList.contains(
-                        "found"
-                    )
-                ) return;
-
-
-                foundNodes++;
-
-
-                node.classList.add(
-                    "found"
-                );
-
-
-                showPopup(
-                    p,
-                    foundNodes
-                );
-
-
-                document
-                    .querySelectorAll(".dot")
-                    [foundNodes-1]
-                    .classList
-                    .add("active");
-
-
-                updateProgress();
-
-
-                createHearts(
-                    node
-                );
-
-
-                if (foundNodes === 2) {
-
-                    document
-                        .getElementById(
-                            "garden-ground"
-                        )
-                        .style.opacity =
-                            ".85";
-                }
-
-
-                if (foundNodes === 3) {
-
-                    document
-                        .querySelector(
-                            ".ui-subtitle"
-                        )
-                        .textContent =
-                        "Ya casi encontramos todo...";
-                }
-
-
-                if (foundNodes === 4) {
-
-                    document
-                        .querySelector(
-                            ".ui-subtitle"
-                        )
-                        .textContent =
-                        "Creo que ya encontraste todo...";
-
-
-                    setTimeout(
-                        bloomFlower,
-                        1200
-                    );
-
-
-                    setTimeout(
-                        showFinal,
-                        4300
-                    );
-                }
-
-            };
-
-
-            document
-                .getElementById(
-                    "main-experience"
-                )
-                .appendChild(
-                    node
-                );
-        }
-    );
+        document.getElementById("main-experience").appendChild(node);
+    });
 }
 
 
@@ -3251,11 +2847,8 @@ function createSecrets() {
 ========================================================= */
 
 function updateProgress() {
-
-    document.getElementById(
-        "progress-text"
-    ).textContent =
-        `RECUERDOS ENCONTRADOS · ${foundNodes} / 4`;
+    document.getElementById("progress-text").textContent =
+        `RECUERDOS ENCONTRADOS · ${foundNodes} / 8`;
 }
 
 
@@ -3264,64 +2857,18 @@ function updateProgress() {
 ========================================================= */
 
 function showPopup(obj,number) {
+    document.getElementById("p-number").textContent = `RECUERDO ${number} · 08`;
+    document.getElementById("p-emoji").textContent = obj.e;
+    document.getElementById("p-title").textContent = obj.t;
+    document.getElementById("p-text").textContent = obj.m;
 
-    document.getElementById(
-        "p-number"
-    ).textContent =
-        `RECUERDO ${number} · 04`;
-
-
-    document.getElementById(
-        "p-emoji"
-    ).textContent =
-        obj.e;
-
-
-    document.getElementById(
-        "p-title"
-    ).textContent =
-        obj.t;
-
-
-    document.getElementById(
-        "p-text"
-    ).textContent =
-        obj.m;
-
-
-    document
-        .getElementById(
-            "popup-overlay"
-        )
-        .classList
-        .add("show");
-
-
-    document
-        .getElementById(
-            "popup"
-        )
-        .classList
-        .add("show");
+    document.getElementById("popup-overlay").classList.add("show");
+    document.getElementById("popup").classList.add("show");
 }
 
-
 function closePopup() {
-
-    document
-        .getElementById(
-            "popup"
-        )
-        .classList
-        .remove("show");
-
-
-    document
-        .getElementById(
-            "popup-overlay"
-        )
-        .classList
-        .remove("show");
+    document.getElementById("popup").classList.remove("show");
+    document.getElementById("popup-overlay").classList.remove("show");
 }
 
 
@@ -3330,73 +2877,23 @@ function closePopup() {
 ========================================================= */
 
 function createHearts(source) {
+    const rect = source.getBoundingClientRect();
 
-    const rect =
-        source.getBoundingClientRect();
+    for (let i = 0; i < 7; i++) {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.textContent = Math.random() > .5 ? "♥" : "✦";
 
+        heart.style.left = (rect.left + rect.width/2) + "px";
+        heart.style.top = (rect.top + rect.height/2) + "px";
 
-    for (
-        let i = 0;
-        i < 7;
-        i++
-    ) {
+        heart.style.setProperty("--size", `${8 + Math.random()*10}px`);
+        heart.style.setProperty("--duration", `${1.3 + Math.random()*.8}s`);
+        heart.style.setProperty("--x", `${(Math.random()-.5)*100}px`);
 
-        const heart =
-            document.createElement(
-                "div"
-            );
+        document.body.appendChild(heart);
 
-        heart.className =
-            "heart";
-
-        heart.textContent =
-            Math.random() > .5
-                ? "♥"
-                : "✦";
-
-
-        heart.style.left =
-            (
-                rect.left +
-                rect.width/2
-            ) + "px";
-
-
-        heart.style.top =
-            (
-                rect.top +
-                rect.height/2
-            ) + "px";
-
-
-        heart.style.setProperty(
-            "--size",
-            `${8 + Math.random()*10}px`
-        );
-
-
-        heart.style.setProperty(
-            "--duration",
-            `${1.3 + Math.random()*.8}s`
-        );
-
-
-        heart.style.setProperty(
-            "--x",
-            `${(Math.random()-.5)*100}px`
-        );
-
-
-        document.body.appendChild(
-            heart
-        );
-
-
-        setTimeout(() => {
-
-            heart.remove();
-
-        }, 2200);
+        setTimeout(() => { heart.remove(); }, 2200);
     }
 }
 
@@ -3405,99 +2902,55 @@ function createHearts(source) {
    BLOOM
 ========================================================= */
 
-function bloomFlower() {
-
+function bloomFlowers() {
     closePopup();
 
+    const plants = document.querySelectorAll("#garden-container .plant");
+    plants.forEach((p, idx) => {
+        if (idx === 0) p.classList.add("shift-left-far");
+        else if (idx === 1 || idx === 2) p.classList.add("shift-left-mid");
+        else if (idx === 3) p.classList.add("shift-left-far");
+        else if (idx === 4 || idx === 5) p.classList.add("shift-right-mid");
+        else if (idx === 6) p.classList.add("shift-right-far");
+    });
 
-    document
-        .getElementById(
-            "special-flower"
-        )
-        .classList
-        .add("bloom");
+    document.getElementById("special-flower-center").classList.add("bloom");
 
+    setTimeout(() => {
+        document.getElementById("special-flower-left").classList.add("bloom");
+    }, 800);
+
+    setTimeout(() => {
+        document.getElementById("special-flower-right").classList.add("bloom");
+    }, 1600);
 
     createFinalStars();
 
+    const heartInterval = setInterval(() => {
+        createCenterHeart();
+    }, 300);
 
     setTimeout(() => {
-
-        for (
-            let i = 0;
-            i < 20;
-            i++
-        ) {
-
-            setTimeout(
-                () => {
-
-                    createCenterHeart();
-
-                },
-                i*90
-            );
-        }
-
-    }, 700);
+        clearInterval(heartInterval);
+    }, 27000);
 }
 
 
 function createCenterHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.textContent = Math.random() > .3 ? "♥" : "✦";
 
-    const heart =
-        document.createElement(
-            "div"
-        );
+    heart.style.left = (50 + (Math.random()-.5)*35) + "%";
+    heart.style.top = "55%";
 
-    heart.className =
-        "heart";
+    heart.style.setProperty("--size", `${9 + Math.random()*12}px`);
+    heart.style.setProperty("--duration", `${2 + Math.random()*1.5}s`);
+    heart.style.setProperty("--x", `${(Math.random()-.5)*150}px`);
 
-    heart.textContent =
-        Math.random() > .3
-            ? "♥"
-            : "✦";
+    document.body.appendChild(heart);
 
-
-    heart.style.left =
-        (
-            50 +
-            (Math.random()-.5)*12
-        ) + "%";
-
-
-    heart.style.top =
-        "50%";
-
-
-    heart.style.setProperty(
-        "--size",
-        `${8 + Math.random()*10}px`
-    );
-
-
-    heart.style.setProperty(
-        "--duration",
-        `${1.8 + Math.random()}s`
-    );
-
-
-    heart.style.setProperty(
-        "--x",
-        `${(Math.random()-.5)*120}px`
-    );
-
-
-    document.body.appendChild(
-        heart
-    );
-
-
-    setTimeout(() => {
-
-        heart.remove();
-
-    }, 3000);
+    setTimeout(() => { heart.remove(); }, 3500);
 }
 
 
@@ -3506,49 +2959,19 @@ function createCenterHeart() {
 ========================================================= */
 
 function createFinalStars() {
+    const container = document.getElementById("final-stars");
 
-    const container =
-        document.getElementById(
-            "final-stars"
-        );
+    for (let i = 0; i < 45; i++) {
+        const star = document.createElement("div");
+        star.className = "final-star";
 
+        star.style.left = Math.random()*100 + "%";
+        star.style.top = Math.random()*100 + "%";
 
-    for (
-        let i = 0;
-        i < 45;
-        i++
-    ) {
+        star.style.setProperty("--duration", `${1.5 + Math.random()*3}s`);
+        star.style.animationDelay = `${Math.random()*2}s`;
 
-        const star =
-            document.createElement(
-                "div"
-            );
-
-        star.className =
-            "final-star";
-
-
-        star.style.left =
-            Math.random()*100 + "%";
-
-
-        star.style.top =
-            Math.random()*100 + "%";
-
-
-        star.style.setProperty(
-            "--duration",
-            `${1.5 + Math.random()*3}s`
-        );
-
-
-        star.style.animationDelay =
-            `${Math.random()*2}s`;
-
-
-        container.appendChild(
-            star
-        );
+        container.appendChild(star);
     }
 }
 
@@ -3558,23 +2981,11 @@ function createFinalStars() {
 ========================================================= */
 
 function showFinal() {
-
-    const finalScreen =
-        document.getElementById(
-            "final-screen"
-        );
-
-
-    finalScreen.style.display =
-        "flex";
-
+    const finalScreen = document.getElementById("final-screen");
+    finalScreen.style.display = "flex";
 
     setTimeout(() => {
-
-        finalScreen.classList.add(
-            "show"
-        );
-
+        finalScreen.classList.add("show");
     }, 100);
 }
 
@@ -3583,21 +2994,11 @@ function showFinal() {
    RESIZE
 ========================================================= */
 
-window.addEventListener(
-    "resize",
-    () => {
-
-        if (
-            document.getElementById(
-                "main-experience"
-            ).style.display ===
-            "block"
-        ) {
-
-            initCanvas();
-        }
+window.addEventListener("resize", () => {
+    if (document.getElementById("main-experience").style.display === "block") {
+        initCanvas();
     }
-);
+});
 
 
 /* =========================================================
@@ -3605,11 +3006,8 @@ window.addEventListener(
 ========================================================= */
 
 window.onload = function() {
-
-    typeEffect();
-
+    startApp();
     updateRelationshipCounter();
-
 };
 
 </script>
